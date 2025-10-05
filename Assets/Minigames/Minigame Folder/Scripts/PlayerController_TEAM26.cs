@@ -10,7 +10,7 @@ using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Rigidbody2D))]
 [RequireComponent(typeof(PlayerInput))] // This component must be attached to the GameObject for input to register
-public class PlayerController : MonoBehaviour, MinigameSubscriber
+public class PlayerController_TEAM26 : MonoBehaviour, MinigameSubscriber
 {
     private Rigidbody2D rb;
 
@@ -38,6 +38,12 @@ public class PlayerController : MonoBehaviour, MinigameSubscriber
 
         Vector2 input = val.Get<Vector2>(); // Get the Vector2 that represents input
         rb.linearVelocity = input * 5f; // 5f is a magic number; speed.
+
+        //the player sprite turns left and right
+        if (input.x > 0)
+            transform.localScale = new Vector3(2, 2, 2);  // face right
+        else if (input.x < 0)
+            transform.localScale = new Vector3(-2, 2, 2); // face left
     }
 
     public void OnMinigameStart()
