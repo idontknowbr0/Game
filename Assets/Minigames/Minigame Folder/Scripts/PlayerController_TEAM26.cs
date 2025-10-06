@@ -14,47 +14,93 @@ public class PlayerController_TEAM26 : MonoBehaviour, MinigameSubscriber
 {
     private Rigidbody2D rb;
 
+    // 👇 Add this public variable so KnifeController can read the direction
+    public float lastHorizontalVector;
+    [HideInInspector]
+    public float lastVerticalVector;
+    [HideInInspector]
+    public Vector2 moveDir;
+    public Vector2 lastMovedVector;
+    [HideInInspector]
+    
     void Start()
     {
-        // Subscribes this class to the minigame manager. This gives access to the
-        // 'OnMinigameStart()' and 'OnTimerEnd()' functions. Otherwise, they won't be called.
         MinigameManager.Subscribe(this);
         rb = GetComponent<Rigidbody2D>();
+        lastMovedVector = new Vector2(1, 0f);
     }
 
     void OnInteract(InputValue val)
     {
-        if (!MinigameManager.IsReady()) // IMPORTANT: Don't allow any input while the countdown is still occuring
+        if (!MinigameManager.IsReady())
             return;
 
-        MinigameManager.SetStateToSuccess(); // Change the minigame state to "Success"
-        MinigameManager.EndGame(); // End the minigame. Without this, the minigame would end when the timer finishes instead (still with success).
+        MinigameManager.SetStateToSuccess();
+        MinigameManager.EndGame();
     }
 
-    void OnMove(InputValue val)
+    // In PlayerController_TEAM26.cs
+
+void OnMove(InputValue val)
+{
+    if (!MinigameManager.IsReady())
+        return;
+
+    // Get the movement vector from the input system
+    moveDir = val.Get<Vector2>();
+
+    // Apply movement to the character
+    rb.linearVelocity = moveDir * 5f;
+
+    // --- Sprite Flipping Logic ---
+    // This part correctly flips the sprite left or right
+    if (moveDir.x > 0)
     {
-        if (!MinigameManager.IsReady()) // IMPORTANT: Don't allow any input while the countdown is still occuring
-            return;
+        transform.localScale = new Vector3(2, 2, 2);
+    }
+    else if (moveDir.x < 0)
+    {
+        transform.localScale = new Vector3(-2, 2, 2);
+    }
 
-        Vector2 input = val.Get<Vector2>(); // Get the Vector2 that represents input
-        rb.linearVelocity = input * 5f; // 5f is a magic number; speed.
+    // --- Store the Last Movement Direction (Corrected Logic) ---
+    // We check if the player is providing any input at all.
+    // This single 'if' statement replaces all the complex ones.
+    if (moveDir.sqrMagnitude > 0.01f)
+    {
+        // If they are moving, we store that direction.
+        // This works for horizontal, vertical, and diagonal movement.
+        lastMovedVector = moveDir.normalized;
+    }
+}
+    void InputManagement(){
+        float moveX = Input.GetAxisRaw("Horizontal");
+        float moveY = Input.GetAxisRaw("Vertical");
+        moveDir = new Vector2(moveX, moveY).normalized;
 
-        //the player sprite turns left and right
-        if (input.x > 0)
-            transform.localScale = new Vector3(2, 2, 2);  // face right
-        else if (input.x < 0)
-            transform.localScale = new Vector3(-2, 2, 2); // face left
+        if(moveDir.x != 0){
+            lastHorizontalVector = moveDir.x;
+            lastMovedVector= new Vector2(lastHorizontalVector, 0f);
+        }
+        if(moveDir.y != 0){
+            lastVerticalVector = moveDir.y;
+            lastMovedVector = new Vector2(0f, lastVerticalVector);
+        }
+        if(moveDir.x!=0 && moveDir.y !=0){
+            lastMovedVector = new Vector2(0f, lastVerticalVector);
+        }
+        if(moveX!=0 && moveY !=0){
+            lastMovedVector = new Vector2(lastHorizontalVector, lastVerticalVector);
+        }
     }
 
     public void OnMinigameStart()
     {
         Debug.Log("Minigame started!");
-        // There isn't anything interesting that needs to happen in here for this example
     }
 
     public void OnTimerEnd()
     {
-        // Timer has expired
         MinigameManager.SetStateToFailure();
         MinigameManager.EndGame();
     }
