@@ -8,7 +8,7 @@ public class KnifeBehavior : ProjectileWeaponBehavior
     protected override void Start()
     {
         base.Start();
-        kc = FindObjectOfType<KnifeController>();
+        kc = Object.FindFirstObjectByType<KnifeController>();
     }
     void Update()
     {

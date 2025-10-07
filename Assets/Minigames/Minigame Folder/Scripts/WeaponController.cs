@@ -12,11 +12,11 @@ public class WeaponController : MonoBehaviour
     float currentCooldown;
     public int pierce;
 
-    protected PlayerController_TEAM26 pm;
+    protected PlayerController pm;
 
     protected virtual void Start()
     {
-        pm = FindObjectOfType<PlayerController_TEAM26>();
+        pm = Object.FindFirstObjectByType<PlayerController>();
         currentCooldown = cooldownDuration; //At the start set the current cooldown to be the cooldown duration
 
     }
