@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Minigames/DebugMinigame/DebugMinigame.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
+  - enabled: 1
+    path: Assets/Minigames/Minigame Folder/Scenes/Game.unity
+    guid: c4ce802c93ae2394cb9524fa10980056
+  - enabled: 1
+    path: Assets/Minigames/Minigame Folder/Scenes/Gameover.unity
+    guid: 9e2c6555645c2af46bc86033a791573e
+  - enabled: 1
+    path: Assets/Minigames/Minigame Folder/Scenes/Victory.unity
+    guid: 703df76fee9ae204d843ed573ef230f0
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
