@@ -5,7 +5,8 @@ using System.Collections.Generic;
 
 public class MinigameManager : MonoBehaviour
 {
-    static MinigameManager singleton; void Awake() { singleton = this; }
+    public static MinigameManager singleton; void Awake() { singleton = this; }
+
     private enum MinigameState
     {
         READY,
@@ -36,6 +37,11 @@ public class MinigameManager : MonoBehaviour
 
         // Ready countdown:
         mstate = MinigameState.READY;
+        //StartCoroutine(ReadyCountdown());
+    }
+
+    public void BeginMinigameCountdown()
+    {
         StartCoroutine(ReadyCountdown());
     }
 

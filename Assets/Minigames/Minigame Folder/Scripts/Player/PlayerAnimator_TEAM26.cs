@@ -1,16 +1,16 @@
 using UnityEngine;
 
-public class PlayerAnimator : MonoBehaviour
+public class PlayerAnimator_TEAM26 : MonoBehaviour
 {
     //References
     Animator am;
-    PlayerController pc;
+    PlayerController_TEAM26 pc;
     SpriteRenderer sr;
 
     void Start()
     {
         am = GetComponent<Animator>();
-        pc = GetComponent<PlayerController>();
+        pc = GetComponent<PlayerController_TEAM26>();
         sr = GetComponent<SpriteRenderer>();
     }
 

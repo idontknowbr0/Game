@@ -2,7 +2,7 @@ using System.Collections;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerHealth : MonoBehaviour
+public class PlayerHealth_TEAM26 : MonoBehaviour
 {
     public int maxHealth = 3;
     public int currentHealth;
@@ -41,7 +41,11 @@ public class PlayerHealth : MonoBehaviour
     void GameOver()
     {
         isDead = true;
-        SceneManager.LoadScene("Gameover");
+        UIManager_TEAM26 ui = Object.FindFirstObjectByType<UIManager_TEAM26>();
+        if (ui != null)
+        {
+            ui.ShowGameOver();
+        }
     }
 
     IEnumerator InvincibilityCoroutine()

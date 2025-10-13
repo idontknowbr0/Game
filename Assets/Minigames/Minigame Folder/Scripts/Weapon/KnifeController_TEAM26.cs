@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KnifeController : WeaponController
+public class KnifeController_TEAM26 : WeaponController_TEAM26
 {
     protected override void Start()
     {
@@ -19,6 +19,6 @@ public class KnifeController : WeaponController
         // Place it at the same position as this weapon
         spawnedKnife.transform.position = transform.position;
 
-        spawnedKnife.GetComponent<KnifeBehavior>().DirectionChecker(pm.lastMovedVector);
+        spawnedKnife.GetComponent<KnifeBehavior_TEAM26>().DirectionChecker(pm.lastMovedVector);
     }
 }

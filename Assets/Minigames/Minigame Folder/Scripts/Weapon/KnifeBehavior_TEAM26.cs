@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KnifeBehavior : ProjectileWeaponBehavior
+public class KnifeBehavior_TEAM26 : ProjectileWeaponBehavior_TEAM26
 {
-    KnifeController kc;
+    KnifeController_TEAM26 kc;
     protected override void Start()
     {
         base.Start();
-        kc = Object.FindFirstObjectByType<KnifeController>();
+        kc = Object.FindFirstObjectByType<KnifeController_TEAM26>();
     }
     void Update()
     {
@@ -20,7 +20,7 @@ public class KnifeBehavior : ProjectileWeaponBehavior
         if (other.CompareTag("Enemy"))
         {
             // Damage the enemy if it has EnemyHealth
-            EnemyHealth enemy = other.GetComponent<EnemyHealth>();
+            EnemyHealth_TEAM26 enemy = other.GetComponent<EnemyHealth_TEAM26>();
             if (enemy != null)
             {
                 enemy.TakeDamage(1);

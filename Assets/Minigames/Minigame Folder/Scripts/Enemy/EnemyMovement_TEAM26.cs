@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class EnemyMovement_TEAM26 : MonoBehaviour
 {
     Transform player;
     public float moveSpeed;
@@ -14,7 +14,7 @@ public class EnemyMovement : MonoBehaviour
 
     void Start()
     {
-        player = Object.FindFirstObjectByType<PlayerController>().transform;
+        player = Object.FindFirstObjectByType<PlayerController_TEAM26>().transform;
         animator = GetComponent<Animator>();
     }
 
@@ -55,6 +55,6 @@ public class EnemyMovement : MonoBehaviour
         }
 
         // Optional: Deal damage to the player here
-        player.GetComponent<PlayerHealth>()?.TakeDamage(1);
+        player.GetComponent<PlayerHealth_TEAM26>()?.TakeDamage(1);
     }
 }

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class PropRandomizer : MonoBehaviour
+public class PropRandomizer_TEAM26 : MonoBehaviour
 {
     public List<GameObject> propSpawnPoints;
     public List<GameObject> propPrefabs;

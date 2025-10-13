@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class WeaponController : MonoBehaviour
+public class WeaponController_TEAM26 : MonoBehaviour
 {
     [Header("Weapon Stats")]
     public GameObject prefab;
@@ -10,11 +10,11 @@ public class WeaponController : MonoBehaviour
     public float cooldownDuration;
     float currentCooldown;
 
-    protected PlayerController pm;
+    protected PlayerController_TEAM26 pm;
 
     protected virtual void Start()
     {
-        pm = Object.FindFirstObjectByType<PlayerController>();
+        pm = Object.FindFirstObjectByType<PlayerController_TEAM26>();
         currentCooldown = cooldownDuration; //At the start set the current cooldown to be the cooldown duration
 
     }

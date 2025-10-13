@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner_TEAM26 : MonoBehaviour
 {
     public GameObject enemyPrefab;
     public Transform[] spawnPoints;

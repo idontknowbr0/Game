@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Potion : MonoBehaviour
+public class Potion_TEAM26 : MonoBehaviour
 {
     private bool isCollected = false;
     public AudioSource pickupSound;
@@ -19,7 +19,7 @@ public class Potion : MonoBehaviour
             }
 
             // Tell the PlayerInventory that a potion was collected
-            PlayerInventory playerInventory = other.GetComponent<PlayerInventory>();
+            PlayerInventory_TEAM26 playerInventory = other.GetComponent<PlayerInventory_TEAM26>();
             if (playerInventory != null)
             {
                 playerInventory.CollectPotion();

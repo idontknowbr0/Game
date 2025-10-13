@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 
-public class PotionSpawner : MonoBehaviour
+public class PotionSpawner_TEAM26 : MonoBehaviour
 {
     public GameObject potionPrefab;
     public int totalPotions = 3;

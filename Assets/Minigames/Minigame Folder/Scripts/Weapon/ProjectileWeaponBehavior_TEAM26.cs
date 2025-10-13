@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class ProjectileWeaponBehavior : MonoBehaviour
+public class ProjectileWeaponBehavior_TEAM26 : MonoBehaviour
 {
     protected Vector3 direction;
     public float destroyAfterSeconds;

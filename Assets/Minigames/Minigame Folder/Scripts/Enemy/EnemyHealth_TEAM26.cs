@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 
-public class EnemyHealth : MonoBehaviour
+public class EnemyHealth_TEAM26 : MonoBehaviour
 {
     public int health = 1;
     private Animator animator;
@@ -26,7 +26,7 @@ public class EnemyHealth : MonoBehaviour
 
         animator.SetTrigger("Die");
 
-        EnemyMovement movement = GetComponent<EnemyMovement>();
+        EnemyMovement_TEAM26 movement = GetComponent<EnemyMovement_TEAM26>();
         if (movement != null) movement.enabled = false;
 
         Collider2D col = GetComponent<Collider2D>();

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerInventory : MonoBehaviour
+public class PlayerInventory_TEAM26 : MonoBehaviour
 {
     public int potionsCollected = 0;
     public int totalPotions = 3; // Number of potions to win
@@ -21,7 +21,10 @@ public class PlayerInventory : MonoBehaviour
     {
         Debug.Log("Player collected all potions! You win!");
 
-        // You can trigger any victory effects or scene transitions here
-        SceneManager.LoadScene("Victory");
+        UIManager_TEAM26 ui = Object.FindFirstObjectByType<UIManager_TEAM26>();
+        if (ui != null)
+        {
+            ui.ShowWin();
+        }
     }
 }
